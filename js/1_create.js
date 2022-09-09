@@ -16,15 +16,11 @@ async function createTables(){
     await db.query(`CREATE TABLE listaAtrizAtor(
         id serial PRIMARY KEY,
         nome VARCHAR(50) UNIQUE NOT NULL,
-        idade date NOT NULL,
-        sexo VARCHAR(3)  NOT NULL 
     )`)
 
     await db.query(`CREATE TABLE listaDir(
         id serial PRIMARY KEY,
         nome VARCHAR(50) UNIQUE NOT NULL,
-        idade date NOT NULL,
-        sexo VARCHAR(3)  NOT NULL 
     )`)
     
     await db.end()
