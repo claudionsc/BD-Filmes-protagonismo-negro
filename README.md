@@ -3,7 +3,7 @@
 ## Banco de dados com os 10 filmes com protagonismo negro
 
 1
-Nome -  Corre
+Nome -  Corra
 Diretor - Jordan Peele
 Lançamento - 2017
 Ator/Atriz Principal - Daniel Kaluuya
