@@ -1,0 +1,23 @@
+{
+  "name": "bd-filmes-protagonismo-negro",
+  "version": "1.0.0",
+  "description": "Banco de dados com os melhores filmes com protagonismo negro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudionsc/BD-Filmes-protagonismo-negro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudionsc/BD-Filmes-protagonismo-negro/issues"
+  },
+  "homepage": "https://github.com/claudionsc/BD-Filmes-protagonismo-negro#readme",
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
+}
