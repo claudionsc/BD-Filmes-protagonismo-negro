@@ -15,7 +15,10 @@ const Filme = sequelize.define('filme', {
     },
     atoratriz: {
         type: Sequelize.STRING
-    }
+    },
+    genero: {
+        type: Sequelize.STRING
+    } 
 })
 
 module.exports = Filme
