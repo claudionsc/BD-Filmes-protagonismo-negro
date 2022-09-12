@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/claudionsc/BD-Filmes-protagonismo-negro#readme",
   "dependencies": {
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "sequelize": "^6.21.6"
   }
 }
