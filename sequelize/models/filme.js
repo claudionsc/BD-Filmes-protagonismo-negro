@@ -23,4 +23,4 @@ module.exports = Filme
 // RELAÇÕES
 
 const Diretor = require('./diretor')
-Filme.belongsToMany(Diretor, {throush: 'filme_diretor'})
+Filme.belongsToMany(Diretor, {through: 'filme_diretor'})
