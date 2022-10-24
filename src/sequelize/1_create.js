@@ -1,4 +1,4 @@
-const models = require('./models')
+const models = require('../models')
 
 // usar o sync apenas em testes, nunca em produção
 async function create(){
