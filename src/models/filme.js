@@ -3,9 +3,10 @@ const sequelize = require('../config/_database')
 
 // CRIAR TABELA
 
-const Filme = sequelize.define('filme', {
+const FilmeModels = sequelize.define('filme', {
     nome: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
     },
     diretor: {
         type: Sequelize.STRING
@@ -18,12 +19,21 @@ const Filme = sequelize.define('filme', {
     },
     genero: {
         type: Sequelize.STRING
+    },
+    descricao: {
+        type: Sequelize.STRING
     } 
 })
 
-module.exports = Filme
 
+const init = async () => {
+    await FilmeModels.sync()
+}
+
+init()
+
+module.exports = FilmeModels
 // RELAÇÕES
 
-const Diretor = require('./diretor')
-Filme.belongsToMany(Diretor, {through: 'filme_diretor'})
+const DiretorModel = require('./diretor')
+FilmeModels.belongsToMany(DiretorModel, {through: 'filme_diretor'})

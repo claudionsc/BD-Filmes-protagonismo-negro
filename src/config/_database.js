@@ -1,14 +1,14 @@
+require('dotenv').config()
+
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize({
-    host: 'localhost',
-    database: 'bd-filmes-negros',
-    username: 'postgres',
-    password: 'admin',
-    dialect: 'postgres',
-    port: 5432,
-    logging: false
-})
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false
+      }
+    }
+  })
 
 module.exports = sequelize
 

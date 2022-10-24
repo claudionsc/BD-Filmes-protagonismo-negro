@@ -1,13 +1,19 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../config/_database')
 
-const Diretor = sequelize.define('diretor', {
+const DiretorModel = sequelize.define('diretor', {
     nome: {
         type: Sequelize.STRING
     }
 })
 
-module.exports = Diretor
 
-const Filme = require('./filme')
-Diretor.belongsToMany(Filme, {through: 'filme_diretor'})
+const init = async () => {
+    await DiretorModel.sync()
+}
+
+init()
+module.exports = DiretorModel
+
+const FilmeModels = require('./filme')
+DiretorModel.belongsToMany(FilmeModels, {through: 'filme_diretor'})
