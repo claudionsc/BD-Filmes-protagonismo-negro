@@ -12,7 +12,7 @@ app.use(cors())
 const database = process.env.DATABASE_URL
 module.exports = database
 
-const port = process.env.DB_PORT || 5000
+const port = process.env.PORT || 5000
 // const port = 5000
 
 app.set('json spaces', 2)
