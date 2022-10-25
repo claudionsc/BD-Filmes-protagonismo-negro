@@ -30,7 +30,7 @@ const FilmeModels = sequelize.define('filme', {
         type: Sequelize.STRING
     },
     descricao: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1000)
     } 
 })
 
