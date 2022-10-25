@@ -20,6 +20,15 @@ const FilmeModels = sequelize.define('filme', {
     genero: {
         type: Sequelize.STRING
     },
+    orçamento: {
+        type: Sequelize.STRING
+    },
+    receita: {
+        type: Sequelize.STRING
+    },
+    duração: {
+        type: Sequelize.STRING
+    },
     descricao: {
         type: Sequelize.STRING
     } 
