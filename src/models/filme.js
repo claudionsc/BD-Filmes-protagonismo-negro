@@ -23,7 +23,7 @@ const FilmeModels = sequelize.define('filme', {
     orçamento: {
         type: Sequelize.STRING
     },
-    receita: {
+    bilheteria: {
         type: Sequelize.STRING
     },
     duração: {
