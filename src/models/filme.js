@@ -31,6 +31,9 @@ const FilmeModels = sequelize.define('filme', {
     },
     descricao: {
         type: Sequelize.STRING(1000)
+    },
+    img: {
+        type: Sequelize.STRING(5000)
     } 
 })
 
