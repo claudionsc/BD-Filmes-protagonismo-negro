@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
-const sequelize = require('../config/_database')
+const connection = require('../config/_database')
 
 // CRIAR TABELA
 
-const FilmeModels = sequelize.define('filme', {
+const FilmeModels = connection.define('filme', {
     nome: {
         type: Sequelize.STRING,
         unique: true
@@ -48,7 +48,3 @@ const init = async () => {
 init()
 
 module.exports = FilmeModels
-// RELAÇÕES
-
-const DiretorModel = require('./diretor')
-FilmeModels.belongsToMany(DiretorModel, {through: 'filme_diretor'})

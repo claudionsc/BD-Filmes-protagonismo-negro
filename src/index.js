@@ -20,7 +20,6 @@ app.use(bodyparser.urlencoded({ extended: false }))
 
 userRoute(app)
 
-// app.use(userRoute)
 
 app.get('/', (req, res) => res.send('Conectado'))
 app.listen(port, () => console.log('------- Conexão com a porta ok ------------'))

@@ -152,50 +152,6 @@ async function insert(){
         img2: 'https://pipocamoderna.com.br/wp-content/uploads/2018/08/besouro.jpg'
 
     })
-
-    // DIRETORES 
-
-    const jordan = await  models.diretor.create({
-        nome: 'Jordan Peele'
-    })
-    const spike = await  models.diretor.create({
-        nome: 'Spike Lee'
-    })
-    const ryan = await  models.diretor.create({
-        nome: 'Ryan Coogler'
-    })
-    const meirelles = await  models.diretor.create({
-        nome: 'Fernando Meirelles'
-    })
-    const tarantino = await  models.diretor.create({
-        nome: 'Quentin Tarantino'
-    })
-    const Gary = await  models.diretor.create({
-        nome: 'F. Gary Gray'
-    })
-    const furtado = await  models.diretor.create({
-        nome: 'Jorge Furtado'
-    })
-    const jenkins = await  models.diretor.create({
-        nome: 'Barry Jenkins'
-    })
-    const joao = await  models.diretor.create({
-        nome: 'João Danielk Tikhomiroff '
-    })
-
-    // DIRETORES EM FILMES 
-    await jordan.setFilmes([corra, nos])
-    await spike.setFilmes([klan])
-    await ryan.setFilmes([panteranegra])
-    await meirelles.setFilmes([cidade])
-    await tarantino.setFilmes([django])
-    await Gary.setFilmes([comptom])
-    await furtado.setFilmes([copiava])
-    await jenkins.setFilmes([moonlight])
-    await joao.setFilmes([besouro])
-
-
-
     console.log('-->INSERIDOS<--')
 }
 insert()

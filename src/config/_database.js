@@ -1,14 +1,23 @@
 require('dotenv').config()
 
+
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(
+  process.env.DATABASE_URL, 
+  {
+    dialect: "mysql",
+    host: process.env.DB_HOST,
+
     dialectOptions: {
       ssl: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: true
+
+      },
     }
   })
+
+console.log('Connected to PlanetScale!')
 
 module.exports = sequelize
 
@@ -26,3 +35,4 @@ async function test(){
     }
 }
 test()
+// connection.end()
