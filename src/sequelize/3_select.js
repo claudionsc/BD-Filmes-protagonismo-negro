@@ -1,5 +1,5 @@
-const { diretor, filme } = require('./models')
-const models = require('./models')
+const { diretor, filme } = require('../models')
+const models = require('../models')
 // const Diretor = require('./models/diretor')
 
 async function select(){
@@ -30,12 +30,28 @@ async function select(){
         ]
     })
 
+    const array = [];
+
+
     filmesDiretores.forEach((diretor) => {
-        console.log('Diretor', diretor.nome)
-        diretor.filmes.forEach((filme) => {
-            console.log('----> Filmes: ', filme.nome)
-        })
+        function Filmes(){
+            let fil = []
+            diretor.filmes.forEach((filme) => {
+             let arr = fil.push(filme.nome)
+            })
+            return fil
+        }
+
+        const map = {
+            Diretor: diretor.nome,
+            Filmes: Filmes(),
+        }
+        
+       array.push(map)
+
+       
     })
+    console.table(array)
     await models.sequelize.close()
 
 }

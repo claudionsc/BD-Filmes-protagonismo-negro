@@ -1,76 +1,70 @@
-# BD-Filmes-protagonismo-negro
+# FILMES COM PROTAGONISMO NEGRO -  BANCO DE DADOS
 
-## Banco de dados com os 10 filmes com protagonismo negro
+Banco de dados relacional N -N com filmes com protagonismo negro e seus diretores
 
-1
-Nome -  Corra
-Diretor - Jordan Peele
-Lançamento - 2017
-Ator/Atriz Principal - Daniel Kaluuya
-Gênero - Suspense, terror
+## COMO RODAR A APLICAÇÃO
 
-2
-Nome - Infiltrado na Klan
-Diretor - Spike Lee 
-Lançamento - 2018
-Ator/Atriz Principal - John David Washington
-Gênero - Drama, biográfico, policial, suspense
+Esta aplicação contém um banco de dados Postgres com Docker. Siga o passo a passo para o seu funcionamento completo
 
-3
-Nome -  Pantera Negra
-Diretor -  Ryan Coogler
-Lançamento - 2018
-Ator/Atriz Principal - Chadwick Boseman
-Gênero - Ação, aventura, ficção científica
+### Clone e Dependências
 
-4
-Nome - Cidade de Deus
-Diretor - Fernando Meirelles
-Lançamento - 2002
-Ator/Atriz Principal - Alexandre Rodrigues
-Gênero - Drama, ação
+Clone o repositório do server (este mesmo) e instale todas as dependências com npm i
 
-5
-Nome - Django Livre 
-Diretor - Quentin Tarantino  
-Lançamento - 2012
-Ator/Atriz Principal - Jamie Foxx
-Gênero - Ação, drama, faroeste 
+### Docker
 
-6
-Nome - Nós
-Diretor - Jordan Peele 
-Lançamento - 2019
-Ator/Atriz Principal - Lupita Nyong'o
-Gênero - Suspense, ficção científica, terror
+Caso não tenha, faça o download do Docker Desktop. A seguir, abra o terminal na pasta raiz do projeto e dê o comando `docker-compose up`.
+Certifique-se de que o Docker Desktop está rodando antes de dar o comando. O docker irá baixar a imagem do postgres e criar um banco de dados.
 
-7
-Nome - Straight Outta Compton
-Diretor - F. Gary Gray
-Lançamento - 2015 
-Ator/Atriz Principal - O'Shea Jackson Jr (e outros)
-Gênero - Drama, biográfico, policial
+### Conectando e criando tabelas
 
-8
-Nome - O Homem que Copiava
-Diretor - Jorge Furtado
-Lançamento - 2003
-Ator/Atriz Principal - Lázaro Ramos
-Gênero - Drama
+Para se conectar com o banco de dados criado pelo docker, dê os seguintes comandos:
 
-9
-Nome -  Moonlight: Sob a Luz do Luar
-Diretor - Barry Jenkins
-Lançamento - 2017
-Ator/Atriz Principal - Trevante Rhodes
-Gênero - Drama
+1. `node .\src\sequelize\1_create.js`
 
-10
-Nome - Besouro 
-Diretor - João Daniel Tikhomiroff  
-Lançamento - 2009
-Ator/Atriz Principal - Aílton Carmo
-Gênero - Ação, drama biográfico, fantasia
+Este comando cria as tabelas definidas nos models e sicroniza a aplicação com o banco de dados, porém exclui todas as tabelas já existentes, caso existam. Caso não queira excluir as tabelas existentes, comente a linha
+`await models.sequelize.sync({force: true})` e descomente a linha `// await models.sequelize.sync()`
+
+2. `node .\src\sequelize\2_insert.js`
+
+Este comando insere os dados nas tabelas.
+
+### Rodando o server
+
+Dê o comando `npm start` para o servidor ficar disponível para as requisições. 
+Caso dê certo, o console exibirá os seguintes logs: 
+`============>Api rodando na porta 5000`
+<br>
+`--->SUCESSO<---`
+
+Caso haja erro, os logs serão exibidos:
+`============>Api rodando na porta 5000`
+<br>
+`------->FALHA: `
+
+Caso apresente falha, o erro pode estar na conexão com o banco de dados. Observe as variáveis de conexão ou o arquivo docker-compose
+
+#### Obs: Você pode iniciar com o comando `npm start` e abrir outro terminal e executar o comando `node .\src\sequelize\2_insert.js`
 
 
+### Fazendo requisições
 
+Com o projeto em funcionamento, você pode simular requisições GET com postman ou até pelo navegador com a rota `http://localhost:5000`. Este caminho exibirá o seguinte:
+`======>Conectado!`
+
+Para exibir o json com os filmes, siga a rota `http://localhost:5000/filmes` e será exibida a lista de filmes criadas com o sequelize.
+Para exibir os diretores, siga a rota `http://localhost:5000/diretor`. Para exibir os dados relacionais dos diretores com os filmes, basta adicionar o id do diretor.
+Ex: `http://localhost:5000/diretor/1`
+
+## Neste projeto
+
+* Sequelize
+* Express
+* Postgres
+* Nodemon
+* Docker compose
+
+## Frontend
+
+Caso queira visualizar esse projeto no client-side, clone o repo do frontend e siga os passos indicados no arquivo README
+
+[Ver repositório do frontend](https://github.com/claudionsc/black-movies.git)
