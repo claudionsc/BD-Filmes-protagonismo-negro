@@ -39,6 +39,62 @@ const relacionalRoute = (app) => {
             }
 
         })
+        .post(async (req, res) => {
+            try {
+                const diretor = new DiretorModels(req.body)
+                await diretor.save()
+
+                res.status(201).send('POST')
+            } catch (error) {
+                res.send('Não é permitido inserir dados nulos')
+            }
+        })
+        .put(async (req, res) => {
+            const { id } = req.params
+
+            if (!id) {
+                return res.status(400).send({ error: 'ID não encontrado' })
+            }
+            try {
+                const updateDiretor = await DiretorModels.update(req.body, {
+                    where: { id: id }
+                })
+
+
+                if (updateDiretor) {
+                    const updateDiretor = await DiretorModels.findOne({ where: { id: id } });
+                    console.log(updateDiretor)
+                    return res.status(200).send('OK!')
+                }
+
+                res.status(400).send({ error: 'Não é possível atualizar o diretor' })
+
+            } catch (error) {
+                res.send(error)
+            }
+        })
+        .delete(async (req, res) => {
+            const { id } = req.params
+
+            if (!id) {
+                return res.status(400).send({ error: 'ID não encontrado' })
+            }
+
+            try {
+                const deleteDiretor = await DiretorModels.destroy({
+                    where: { id: id }
+                })
+                if (deleteDiretor) {
+                    return res.send('Deletado')
+                }
+
+                res.status(400).send({ error: 'Não foi possível deletar o diretor' })
+
+            } catch (error) {
+                res.send(error)
+            }
+        })
+
 }
 
 module.exports = relacionalRoute

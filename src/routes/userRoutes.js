@@ -65,7 +65,7 @@ const userRoute = (app) => {
                     return res.status(200).send('OK!')
                 }
 
-                res.status(400).send({ error: 'Não é possível atualizar a filme' })
+                res.status(400).send({ error: 'Não é possível atualizar o filme' })
 
             } catch (error) {
                 res.send(error)
@@ -86,7 +86,7 @@ const userRoute = (app) => {
                     return res.send('Deletado')
                 }
 
-                res.status(400).send({ error: 'Não foi possível deletar filme' })
+                res.status(400).send({ error: 'Não foi possível deletar o filme' })
 
             } catch (error) {
                 res.send(error)
