@@ -3,21 +3,6 @@ const models = require('../models')
 async function insert(){
 
     // FILMES 
-    
-    const corra = await models.filme.create({
-        nome: 'Corra',
-        diretor: 'Jordan Peele',
-        lançamento: 2017,
-        atoratriz: 'Daniel Kaluuya',
-        genero: 'Suspense, terror',
-        orçamento: '$4,500,000.00',
-        bilheteria: '$255,407,969.00',
-        duração: '1h 44m',
-        descricao: 'Agora que Chris e a sua namorada Rose chegaram ao ponto da relação em que se apresenta a família, ela convida-o a passar o fim de semana em casa dos seus pais, Missy e Dean. À primeira vista, Chris vê o comportamento excessivamente condescendente da família como tentativas nervosas de lidar com o relacionamento inter-racial da filha, mas com o avançar do fim de semana, uma série de descobertas, cada vez mais perturbadoras, levam-no a uma verdade que ele nunca poderia imaginar...',
-        img: 'https://static01.nyt.com/images/2018/03/03/arts/03get-out-posters-print2/merlin_134418533_a3f2d747-aa59-4ba1-92e6-4376f85587eb-jumbo.jpg',
-        img2: 'https://assets.papodehomem.com.br/2017/05/15/03/53/50/7e6362b3-eff4-408d-9205-6165fb9f0b84/poster-get-out-2017-jpg'
-
-    })
 
     const klan = await models.filme.create({
         nome: 'Infiltrado na Klan',
@@ -153,5 +138,51 @@ async function insert(){
 
     })
     console.log('-->INSERIDOS<--')
+
+    DIRETORES 
+
+    const jordan = await  models.diretor.create({
+        nome: 'Jordan Peele'
+    })
+    const spike = await  models.diretor.create({
+        nome: 'Spike Lee'
+    })
+    const ryan = await  models.diretor.create({
+        nome: 'Ryan Coogler'
+    })
+    const meirelles = await  models.diretor.create({
+        nome: 'Fernando Meirelles'
+    })
+    const tarantino = await  models.diretor.create({
+        nome: 'Quentin Tarantino'
+    })
+    const Gary = await  models.diretor.create({
+        nome: 'F. Gary Gray'
+    })
+    const furtado = await  models.diretor.create({
+        nome: 'Jorge Furtado'
+    })
+    const jenkins = await  models.diretor.create({
+        nome: 'Barry Jenkins'
+    })
+    const joao = await  models.diretor.create({
+        nome: 'João Danielk Tikhomiroff '
+    })
+
+    // DIRETORES EM FILMES 
+    await jordan.setFilmes([corra, nos])
+    await spike.setFilmes([klan])
+    await ryan.setFilmes([panteranegra])
+    await meirelles.setFilmes([cidade])
+    await tarantino.setFilmes([django])
+    await Gary.setFilmes([comptom])
+    await furtado.setFilmes([copiava])
+    await jenkins.setFilmes([moonlight])
+    await joao.setFilmes([besouro])
+
+
+
+    console.log('-->INSERIDOS<--')
 }
+
 insert()
